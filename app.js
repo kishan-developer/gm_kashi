@@ -21,8 +21,14 @@ const port = process.env.PORT || 5001;
 // all student authentication
 app.use("/api/service", require("./Routes/ServiceRoutes"));
 
-
+// img file to url 
 app.use("/api/img", require("./Routes/ImgToUrlRoutes"));
+
+
+// packages api route
+app.use("/api/package", require("./Routes/PackageRoutes"));
+
+
 
 // error handler middleware user to conver error html formate to json formate 
 // app.use(errorHandler);

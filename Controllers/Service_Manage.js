@@ -44,7 +44,7 @@ const getAllService = asyncHandler(async (req, res) => {
 // get one user data 
 const getoneservice = asyncHandler(async (req, res) => {
 
-    const { _id } = req.body;
+    const { _id } = req.params;
 
     
     const serviceData = await serviceModel.findById({ _id });
@@ -63,8 +63,9 @@ const getoneservice = asyncHandler(async (req, res) => {
 
 // update one user details
 const updateservice = asyncHandler(async (req, res) => {
+    const { _id } = req.params;
     console.log("req.body", req.body);
-    const { _id, title, ImageUrl, content } = req.body;
+    const {  title, ImageUrl, content } = req.body;
 
     if (!_id) {
         res.status(400);
@@ -90,7 +91,7 @@ const updateservice = asyncHandler(async (req, res) => {
 
 // update and Delete 
 const deleteservice = asyncHandler(async (req, res) => {
-    const { _id } = req.body;
+    const { _id } = req.params;
 
     if ( !_id) {
         res.status(401);

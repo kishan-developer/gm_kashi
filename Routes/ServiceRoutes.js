@@ -18,18 +18,18 @@ router.get("/all", getAllService);
 // url -> /api/user_management/getOneUser
 // method -> GET
 // get all user list on only login 
-router.get("/one", getoneservice);
+router.get("/:_id", getoneservice);
 
 
 // url -> /api/user_management/update
 // method -> PUT
-router.put("/update", updateservice);
+router.put("/:_id", updateservice);
 
 
 // url -> /api/user_management/deleteOne
 // method -> DELETE
 // delete one user data with current user email id and find user data is available or not than 
-router.delete("/delete", deleteservice);
+router.delete("/:_id", deleteservice);
 
 
 
