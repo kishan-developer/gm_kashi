@@ -1,7 +1,7 @@
 
 const express = require("express");
 const { createService, getAllService, getoneservice, updateservice, deleteservice } = require("../Controllers/Service_Manage");
-
+const { validateToken } = require("../Middlewares/validateToken")
 const router = express.Router();
 
 

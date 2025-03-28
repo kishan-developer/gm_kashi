@@ -30,6 +30,10 @@ app.use("/api/package", require("./Routes/PackageRoutes"));
 
 
 
+// admin authentication 
+app.use("/api/auth", require("./Routes/AuthRoutes"))
+
+
 // error handler middleware user to conver error html formate to json formate 
 // app.use(errorHandler);
 
