@@ -39,6 +39,21 @@ const Admin_Model = mongoose.Schema(
         },
         socialProfile: {
             type: [String]
+        },
+        trackingId: {
+            type: String
+        },
+        amount: {
+            type: String // course enrolled price 
+        },
+        creditMode: {
+            type: String
+        },
+        paymentMode: {
+            type: String
+        },
+        paymentStatus: {
+            type: String
         }
     },
     {

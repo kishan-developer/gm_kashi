@@ -73,6 +73,7 @@ const login = async (req, res) => {
             return res.status(401).json({ message: `User with email ${email} not found` });
         }
 
+        
         // Validate password
         const isMatch = await bcrypt.compare(password, user.password);
         console.log("Password Match:", isMatch);
