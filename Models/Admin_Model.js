@@ -39,33 +39,6 @@ const Admin_Model = mongoose.Schema(
         },
         socialProfile: {
             type: [String]
-        },
-        trackingId: {
-            type: String
-        },
-        amount: {
-            type: String // course enrolled price 
-        },
-        creditMode: {
-            type: String
-        },
-        paymentMode: {
-            type: String
-        },
-        paymentStatus: {
-            type: String
-        },
-        enrolledCourses: {
-            type: [String]
-        },
-        wishlist: {
-            type: [String] // Array of course IDs
-        },
-        cart: {
-            type: [{
-                courseId: String,
-                // you might include price, discount info etc.
-            }]
         }
     },
     {
