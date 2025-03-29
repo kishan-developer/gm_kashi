@@ -99,7 +99,7 @@ const deleteservice = asyncHandler(async (req, res) => {
     }
 
     // check service for new user 
-    const checkservice = await serviceModel.findById({_id:_id});
+    const checkservice = await serviceModel.findById({ _id:_id });
 
     if(!checkservice){
         res.status(401);

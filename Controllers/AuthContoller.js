@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const userModel = require("../models/userModel");
+const Admin_Model = require("../models/Admin_Model");
 
 
 const register = async (req, res) => {
@@ -25,7 +25,7 @@ const register = async (req, res) => {
         }
 
         // Check if user already exists
-        const existingUser = await userModel.findOne({ email });
+        const existingUser = await Admin_Model.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: "User already exists" });
         }
@@ -34,7 +34,7 @@ const register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create a new user
-        const newUser = new userModel({
+        const newUser = new Admin_Model({
             firstname,
             lastname,
             displayname,
@@ -66,7 +66,7 @@ const login = async (req, res) => {
         const { firstname, lastname, email, password } = req.body;
 
         // Check if user exists
-        const user = await userModel.findOne({ email });
+        const user = await Admin_Model.findOne({ email });
         console.log("User:", user);
 
         if (!user) {
