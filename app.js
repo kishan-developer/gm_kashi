@@ -29,6 +29,9 @@ app.use("/api/img", require("./Routes/ImgToUrlRoutes"));
 app.use("/api/package", require("./Routes/PackageRoutes"));
 
 
+// blog post api router
+app.use("/api/blog", require("./Routes/BlogRoutes"));
+
 
 // admin authentication 
 app.use("/api/auth", require("./Routes/AuthRoutes"))
