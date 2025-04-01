@@ -22,16 +22,14 @@ const createBlogPost = asyncHandler(async (req, res)=> {
     })
 })
 
-
-
 // get one user data 
-const getBlogPost = asyncHandler(async (req, res) => {
+const getOnePost = asyncHandler(async (req, res) => {
 
     const { _id } = req.params;
     
-    const post = await BlogModel.findById({ _id });
+    const getPost = await BlogModel.findById({ _id });
 
-    if (!post) {
+    if (!getPost) {
         res.status(400);
         throw new Error("Blog post Data not Found! Pleach Check your Id ")
     }
@@ -39,7 +37,7 @@ const getBlogPost = asyncHandler(async (req, res) => {
     res.status(200).json({
         status: "sucess",
         message: "Get One blog Data Successfully!",
-        data: post,
+        data: getPost,
     })
 
 })  
@@ -72,7 +70,6 @@ const updateBlogPost = asyncHandler(async (req, res) => {
     })
 })
 
-
 // update and Delete 
 const deleteBlogPost = asyncHandler(async (req, res) => {
     const { _id } = req.params;
@@ -92,7 +89,7 @@ const deleteBlogPost = asyncHandler(async (req, res) => {
 
     const blogPost = await BlogModel.deleteOne({ _id: _id });
 
-    if (!service) { 
+    if (!blogPost) { 
         req.status(400);
         throw new Error("blog Data Not Available!, Please Check Again!");
     }
@@ -103,13 +100,23 @@ const deleteBlogPost = asyncHandler(async (req, res) => {
     })
 })
 
-
-
-
-
 const getAllBlogPost = asyncHandler(async(req, res)=> {
+    console.log("blogs")
 
+    const blogs = await BlogModel.find();
+
+    if(!blogs){
+        res.status(400);
+        throw new Error("Somethig Went wrong");
+    }
+
+
+    res.status(200).json({
+        status: "success",
+        message: "User post find successfully!",
+        data: blogs
+    })
 })
 
 
-module.exports = { createBlogPost, updateBlogPost, deleteBlogPost, getBlogPost, getAllBlogPost }
+module.exports = { createBlogPost, updateBlogPost, deleteBlogPost, getOnePost, getAllBlogPost }

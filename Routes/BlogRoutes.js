@@ -1,22 +1,15 @@
 const express = require("express");
-const { createBlogPost, updateBlogPost, deleteBlogPost, getBlogPost, getAllBlogPost } = require("../Controllers/BlogPostController");
+const { createBlogPost, updateBlogPost, deleteBlogPost, getOnePost, getAllBlogPost } = require("../Controllers/BlogPostController");
 const validateToken = require("../Middlewares/validateToken")
 const router = express.Router();
 
-// create a new blog post 
-router.post("/create", createBlogPost);
+router.get("/all", getAllBlogPost);
 
-// update a  blog post using id
-router.put("/:_id", validateToken, updateBlogPost );
+router.get("/:_id", getOnePost);
 
-// delete  blog post using id
-router.delete("/:_id", validateToken, deleteBlogPost);
+router.put("/:_id", updateBlogPost);
 
-// get a one blog post using id
-router.get("/:_id", getBlogPost);
-
-// get a all blog post 
-router.get("/", getAllBlogPost);
+router.delete("/:_id", deleteBlogPost)
 
 
 module.exports = router;
